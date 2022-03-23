@@ -6,9 +6,12 @@ namespace InAndOutNet6Training.Controllers
     {
         public IActionResult Index()
         {
-            string todaysDate = DateTime.Now.ToShortDateString();
-            return Ok(todaysDate);
-            //return View();
+            return View();
+        }
+
+        public IActionResult Details(int id)
+        {
+            return Ok($"You have entered: {id}");
         }
     }
 }
