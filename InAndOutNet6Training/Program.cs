@@ -5,13 +5,11 @@ IMvcBuilder builderMvc = builder.Services.AddControllersWithViews();
 
 IMvcBuilder builderRazor = builder.Services.AddRazorPages();
 
-#if DEBUG
 if (builder.Environment.IsDevelopment())
 {
     builderMvc.AddRazorRuntimeCompilation();
     builderRazor.AddRazorRuntimeCompilation();
 }
-#endif
 
 var app = builder.Build();
 
