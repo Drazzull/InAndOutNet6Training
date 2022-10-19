@@ -37,5 +37,15 @@ namespace InAndOutNet6Training.Controllers
         {
             return Ok("Success");
         }
+
+        public IActionResult RedirectToGoogle()
+        {
+            return Redirect("https://www.google.com");
+        }
+
+        public IActionResult RedirectToActionResult()
+        {
+            return RedirectToAction("target", "Blog");
+        }
     }
 }
