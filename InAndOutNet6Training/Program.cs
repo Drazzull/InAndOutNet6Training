@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 IMvcBuilder builderMvc = builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<InAndOutNet6Training.Data.ApplicationDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DockerConnection")));
 IMvcBuilder builderRazor = builder.Services.AddRazorPages();
 
 if (builder.Environment.IsDevelopment())
