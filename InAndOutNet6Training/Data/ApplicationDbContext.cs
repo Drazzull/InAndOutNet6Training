@@ -5,7 +5,7 @@ namespace InAndOutNet6Training.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Item>? Items { get; set; }
+        public DbSet<Item> Items => Set<Item>();
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
