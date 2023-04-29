@@ -25,5 +25,17 @@ namespace InAndOutNet6Training.Controllers
                 return View(ex.Message);
             }
         }
+
+        public IActionResult Create()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
     }
 }
