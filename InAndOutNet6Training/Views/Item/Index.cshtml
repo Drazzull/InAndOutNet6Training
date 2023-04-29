@@ -2,11 +2,13 @@
 
 <div class="container p3">
     <div class="row pt-4">
-        <div class="col-6">
+        <div class="col-3">
             <h2 class="text-primary">Borrowed Items List</h2>
         </div>
-        <div class="col-6">
-            Create new Item
+        <div class="col align-self-center">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Create", "Item")'" title="Create new Item">
+                <span class="bi bi-plus"></span>
+            </button>
         </div>
     </div>
     <br />
