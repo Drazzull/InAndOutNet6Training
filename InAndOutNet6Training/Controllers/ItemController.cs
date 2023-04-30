@@ -13,12 +13,11 @@ namespace InAndOutNet6Training.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Create()
         {
             try
             {
-                IEnumerable<Item> itemList = _context.Items;
-                return View(itemList);
+                return View();
             }
             catch (Exception ex)
             {
@@ -26,11 +25,28 @@ namespace InAndOutNet6Training.Controllers
             }
         }
 
-        public IActionResult Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Item item)
         {
             try
             {
-                return View();
+                _context.Items.Add(item);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
+        public IActionResult Index()
+        {
+            try
+            {
+                IEnumerable<Item> itemList = _context.Items;
+                return View(itemList);
             }
             catch (Exception ex)
             {
