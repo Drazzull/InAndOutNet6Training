@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<InAndOutNet6Training.Models.Item>
 
+@{
+    ViewData["Title"] = "Items";
+}
+
 <div class="container p3">
     <div class="row pt-4">
         <div class="col-3">
@@ -15,7 +19,8 @@
 
     @if (Model.Count() > 0)
     {
-        <table class="table table-bordered table-striped" style="width:100%">
+        <table class="table table-striped" style="width:100%">
+            <caption>List of the borrowed items</caption>
             <thead>
                 <tr>
                     <th>
