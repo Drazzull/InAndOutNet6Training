@@ -35,7 +35,7 @@
                 {
                     <tr>
                         <td width="50%">@item.Name</td>
-                        <td width="50%">@item.Cost</td>
+                        <td width="50%">@item.Cost.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                     </tr>
                 }
             </tbody>
