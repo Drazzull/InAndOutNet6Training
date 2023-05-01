@@ -22,9 +22,11 @@
                 <div class="form-group row">
                     <div class="col-6">
                         <input asp-for="Name" class="form-control" autofocus />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="col-6">
-                        <input asp-for="Cost" class="form-control" />
+                        <input asp-for="Cost" type="Number" class="form-control" step="0.01" />
+                        <span asp-validation-for="Cost" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -33,7 +35,7 @@
                             <button type="submit" class="btn btn-info w-75" value="create">Save</button>
                         </div>
                         <div class="col align-self-center">
-                            <button type="button" class="btn btn-warning w-75" onclick="location.href='@Url.Action("Index")'" title="Go back to the Expense page">Back@*<span class="bi bi-box-arrow-in-left"></span>*@</button>
+                            <button type="button" class="btn btn-warning w-75" onclick="location.href='@Url.Action("Index")'" title="Go back to the Expense page">Back</button>
                         </div>
                     </div>
                 </div>
@@ -41,3 +43,9 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -31,6 +31,10 @@ namespace InAndOutNet6Training.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(expense);
+                }
                 _context.Expenses.Add(expense);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
