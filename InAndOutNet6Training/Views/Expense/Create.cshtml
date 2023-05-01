@@ -1,0 +1,39 @@
+﻿@model InAndOutNet6Training.Models.Expense
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Expense</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Cost"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Name" class="form-control" autofocus />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Cost" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 pt-1 text-center row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-info w-75" value="create">Save</button>
+                        </div>
+                        <div class="col align-self-center">
+                            <button type="button" class="btn btn-warning w-75" onclick="location.href='@Url.Action("Index")'" title="Go back to the Expense page">Back@*<span class="bi bi-box-arrow-in-left"></span>*@</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
