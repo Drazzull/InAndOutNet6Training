@@ -13,6 +13,34 @@ namespace InAndOutNet6Training.Controllers
             _context = context;
         }
 
+        public IActionResult Create()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Expense expense)
+        {
+            try
+            {
+                _context.Expenses.Add(expense);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
         public IActionResult Index()
         {
             try
