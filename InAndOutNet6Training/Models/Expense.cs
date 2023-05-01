@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace InAndOutNet6Training.Models
 {
@@ -9,8 +8,7 @@ namespace InAndOutNet6Training.Models
 
         [Key]
         public int Id { get; set; }
-
-        [DisplayName("Name")]
+        
         public string Name { get; set; } = string.Empty;
     }
 }
