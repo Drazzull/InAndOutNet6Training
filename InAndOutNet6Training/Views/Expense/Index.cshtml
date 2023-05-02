@@ -42,7 +42,7 @@
                         <td width="45%">@expense.Cost.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
                         <td width="10%">
                             <div class="w-100 btn-group" role="group">
-                                <button type="button" class="btn btn-primary btn-sm mx-1" onclick="location.href='@Url.Action("Update", "Expense", new { Id = expense.Id })'" title="Update Expense" autofocus>
+                                <button type="button" class="btn btn-primary btn-sm mx-1" onclick="location.href='@Url.Action("Update", "Expense", new { Id = expense.Id })'" title="Update the Expense" autofocus>
                                     <span class="bi bi-pencil-fill"></span>
                                 </button>
                                 <button type="button" class="btn btn-warning btn-sm mx-1" onclick="location.href='@Url.Action("Delete", "Expense", new { Id = expense.Id })'" title="Delete the Expense" autofocus>

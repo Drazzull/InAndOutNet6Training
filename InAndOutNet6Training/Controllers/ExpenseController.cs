@@ -35,6 +35,7 @@ namespace InAndOutNet6Training.Controllers
                 {
                     return View(expense);
                 }
+
                 _context.Expenses.Add(expense);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -79,6 +80,7 @@ namespace InAndOutNet6Training.Controllers
                 {
                     return NotFound();
                 }
+
                 _context.Expenses.Remove(expense);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -101,5 +103,50 @@ namespace InAndOutNet6Training.Controllers
                 return View(ex.Message);
             }
         }
+
+        public IActionResult Update(int? id)
+        {
+            try
+            {
+                if (id == null || id == 0)
+                {
+                    return NotFound();
+                }
+
+                var expense = _context.Expenses.Find(id);
+                if (expense == null)
+                {
+                    return NotFound();
+                }
+
+                return View(expense);
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdatePost(Expense expense)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction(nameof(Update), new { expense.Id });
+                }
+
+                _context.Expenses.Update(expense);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+        }
+
     }
 }
