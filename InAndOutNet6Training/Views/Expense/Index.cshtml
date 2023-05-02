@@ -29,21 +29,35 @@
                     <th>
                         Cost
                     </th>
+                    <th>
+                        Actions
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var expense in Model)
                 {
                     <tr>
-                        <td width="50%">@item.Name</td>
-                        <td width="50%">@item.Cost.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td width="45%">@expense.Name</td>
+                        <td width="45%">@expense.Cost.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td width="10%">
+                            <div class="w-100 btn-group" role="group">
+                                <button type="button" class="btn btn-primary btn-sm mx-1" onclick="location.href='@Url.Action("Update", "Expense", new { Id = expense.Id })'" title="Update Expense" autofocus>
+                                    <span class="bi bi-pencil-fill"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-sm mx-1" onclick="location.href='@Url.Action("Delete", "Expense", new { Id = expense.Id })'" title="Delete the Expense" autofocus>
+                                    <span class="bi bi-trash3"></span>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
             <tfoot>
                 <tr>
-                    <td width="50%"><b>Total:</b></td>
-                    <td width="50%"><b>@Model.Sum(x => x.Cost).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</b></td>
+                    <td width="33%"><b>Total:</b></td>
+                    <td width="33%"><b>@Model.Sum(x => x.Cost).ToString("C", new System.Globalization.CultureInfo("pt-BR"))</b></td>
+                    <td />
                 </tr>
             </tfoot>
         </table>
