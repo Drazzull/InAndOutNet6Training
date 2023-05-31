@@ -54,13 +54,13 @@ namespace InAndOutNet6Training.Controllers
                 {
                     return NotFound();
                 }
-                
+
                 var expense = _context.Expenses.Find(id);
                 if (expense == null)
                 {
                     return NotFound();
                 }
-                
+
                 return View(expense);
             }
             catch (Exception ex)
@@ -147,6 +147,5 @@ namespace InAndOutNet6Training.Controllers
                 return View(ex.Message);
             }
         }
-
     }
 }
