@@ -1,0 +1,55 @@
+﻿@model IEnumerable<InAndOutNet6Training.Models.ExpenseCategory>
+
+@{
+    ViewData["Title"] = "Expense Categories";
+}
+
+<div class="container p3">
+    <div class="row pt-4">
+        <div class="col-4">
+            <h2 class="text-primary">List of Expense Categories</h2>
+        </div>
+        <div class="col align-self-center">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Create", "ExpenseCategory")'" title="Create new Expense Category" autofocus>
+                <span class="bi bi-plus"></span>
+            </button>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped" style="width:100%">
+            <caption>List of the expense categories</caption>
+            <thead>
+                <tr>
+                    <th>
+                        Expense Category Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var expense in Model)
+                {
+                    <tr>
+                        <td width="90%">@expense.Name</td>
+                        <td width="10%">
+                            <div class="w-100 btn-group" role="group">
+                                <button type="button" class="btn btn-primary btn-sm mx-1" onclick="location.href='@Url.Action("Update", "ExpenseCategory", new { Id = expense.Id })'" title="Update the Expense Category" autofocus>
+                                    <span class="bi bi-pencil-fill"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-sm mx-1" onclick="location.href='@Url.Action("Delete", "ExpenseCategory", new { Id = expense.Id })'" title="Delete the Expense Category" autofocus>
+                                    <span class="bi bi-trash3"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No items found.</p>
+    }
+</div>
