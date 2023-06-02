@@ -1,0 +1,38 @@
+﻿@model InAndOutNet6Training.Models.ExpenseCategory
+
+@{
+    ViewData["Title"] = "Delete Expense Category";
+}
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Delete Expense Category</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group row">
+                    <div class="col">
+                        <label asp-for="Name"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <input asp-for="Name" disabled class="form-control" autofocus />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 text-start pt-2 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger w-75" value="Delete">Delete</button>
+                        </div>
+                        <div class="col align-self-center">
+                            <button type="button" class="btn btn-success w-75" onclick="location.href='@Url.Action("Index")'" title="Go back to the Expense Category page">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
