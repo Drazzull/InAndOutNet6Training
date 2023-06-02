@@ -10,8 +10,8 @@ namespace InAndOutNet6Training.Data
 
         }
 
-        public DbSet<Expense> Expenses => Set<Expense>();
         public DbSet<ExpenseCategory> ExpenseCategories => Set<ExpenseCategory>();
+        public DbSet<Expense> Expenses => Set<Expense>();
         public DbSet<Item> Items => Set<Item>();
     }
 }
